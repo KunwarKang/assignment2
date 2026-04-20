@@ -140,13 +140,12 @@ class Inventory:
         if n <= 1:
             return
         
-        # Using bubble sort for simplicity (in-place)
+        # Bubble sort - in place
         for i in range(n - 1):
             for j in range(n - 1 - i):
                 product_j = self.get_product(j)
                 product_j_next = self.get_product(j + 1)
                 if product_j.stock > product_j_next.stock:
-                    # Swap using set_product
                     self.set_product(j, product_j_next)
                     self.set_product(j + 1, product_j)
 
@@ -166,7 +165,7 @@ class Inventory:
 
 if __name__ == "__main__":
     names = ["apples", "soup", "milk", "tofu", "poptarts", "lightbulbs", "soda", "chips"]
-    stocks = [7, 6, 3, 1, 2, 0, 5, 24] # number in stock
+    stocks = [7, 6, 3, 1, 2, 0, 5, 24]
     prices = [3.99, 1.99, 2.50, 4.50, 5.99, 8.05, 2.99, 1.99]
 
     inventory = Inventory(names, stocks, prices)
